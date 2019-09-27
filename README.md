@@ -26,34 +26,34 @@ If anything is unclear or you have any questions, feel free to get back to us. W
 
 ## Functional requirements
 
-### Task 1: As a user I want to see all available product categories
-  
+### Task 1: As a user I want to see a list of products titles and descriptions
+
+  * Given that I am a user
+  * When I land on the main page
+  * Then I can see a list of products titles and description
+
+### Task 2: As a user I want to be able to search in the product title and description
+
+  * Given that I am a user
+  * When I type ' serv' in the input search
+  * Then the products matching the search input in title and/or description are shown below
+
+### Task 3: As a user I want to see all available product categories
+
   * Given that I am a user
   * When I land on the main page
   * Then I can see the categories of products
 
-### Task 2: As a user I want to see a list of products titles
- 
-  * Given that I am a user
-  * When I land on the main page
-  * Then I can see a list of products titles
+### Task 4: As a user I want to see the products for the selected category
 
-### Task 3: As a user I want to see the products for the selected category
- 
   * Given that I am a user
   * When I land on the main page view
   * And I click on 'Drinks Cabinet' category
   * Then I can see a list of products belonging to that category
   * And the selected category is bold
 
-### Task 4: As a user I want to be able to search in the product title and description
-  
-  * Given that I am a user and I land on the 'Drinks Cabinet'
-  * When I type ' serv' in the input search
-  * Then the products matching the search input in title and/or description are shown below
-
 ### Task 5: As a user I want to be able to see the product description when I click on the product name
-  
+
   * Given that I am a user and I land on main page
   * When I click on 'Borsao Macabeo'
   * Then I can see the description appearing below and the title is bold
@@ -63,7 +63,7 @@ If anything is unclear or you have any questions, feel free to get back to us. W
   * Then all the clicked products descriptions are visible
 
 ### Task 6: As a user I want to be able to navigate with the browser's native back and forward buttons
-  
+
   * Given that I am a user
   * When I am on the 'Drinks Cabinet' category
   * And I click on 'Large Alcohol' category
@@ -74,13 +74,12 @@ If anything is unclear or you have any questions, feel free to get back to us. W
 
 #### API endpoints:
 
-* To get the categories: https://api.gousto.co.uk/products/v2.0/categories
 * To get the products: https://api.gousto.co.uk/products/v2.0/products?includes[]=categories&image_sizes[]=365
 * For cross origin accessibility you can use [cross-fetch](https://www.npmjs.com/package/cross-fetch) that is already installed in package.json.
-* If one of the first points are not working then use steps from this link : 
+* If one of the first points are not working then use steps from this link :
 `https://alfilatov.com/posts/run-chrome-without-cors/`
 
-## Non-Functional Requirements 
+## Non-Functional Requirements
 
 * UI should be built with React, but you are allowed to use additional other libraries if needed
 * Use your preferred library for state management (Redux dependencies are already set up, but you can use what you want)
