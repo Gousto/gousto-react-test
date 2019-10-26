@@ -5,8 +5,9 @@ import './App.css'
 
 const App = () => (
   <div className="appContainer">
-    <Route exact path="/" component={Menu} />
+    {/*<Route exact path="/" component={Menu} />*/}
+    <Menu/>
   </div>
-)
+);
 
 export default App
