@@ -12,7 +12,7 @@ const fetchProducts = () => dispatch => {
     })
 };
 
-export const actions = {
+export const productActions = {
     fetchProducts,
     types: FETCH_PRODUCTS_ACTION_TYPES
 };

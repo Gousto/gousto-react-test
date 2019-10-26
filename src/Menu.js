@@ -7,10 +7,6 @@ import {selectedCategorySelector} from "./redux/selectedCategoryReducer";
 
 export class Menu extends Component{
 
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         this.props.fetchCategories();
     }
@@ -23,11 +19,11 @@ export class Menu extends Component{
           return (
             <div>
               <h1 className="title">Menu</h1>
-                {this.props.categories.data &&
+                {this.props.categories.data ?
                 this.props.categories.data.map(category => (
                         <li key={category.id}><button style={category.id === this.props.selectedCategory ? {fontWeight: 'bold'} : null} onClick={() => this.setSelectedCategory(category.id)}>{category.title}</button></li>
                         )
-                    )
+                ) : <div>Loading Categories</div>
                 }
             </div>
           )
