@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import menu from './menu'
+import categoryReducer from './categoryReducer'
 import productReducer, {searchTermReducer} from "./productReducer";
 import selectedCategoryReducer from "./selectedCategoryReducer";
 
 export default combineReducers({
-  categories: menu,
+  categories: categoryReducer,
   products: productReducer,
   selectedCategory: selectedCategoryReducer,
   searchTerm: searchTermReducer

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import {categoryActions} from './actions/categoryActions';
-import {categorySelector} from './redux/menu'
+import {categorySelector} from './redux/categoryReducer'
 import {selectedCategorySelector} from "./redux/selectedCategoryReducer";
 
 export class UnconnectedMenu extends Component{
@@ -19,7 +19,7 @@ export class UnconnectedMenu extends Component{
           return (
             <div>
               <h1 className="title">Menu</h1>
-                {this.props.categories.data ?
+                {this.props.categories && this.props.categories.data ?
                 this.props.categories.data.map(category => (
                         <li key={category.id}
                         data-test={`menu-list-item-${category.id}`}>

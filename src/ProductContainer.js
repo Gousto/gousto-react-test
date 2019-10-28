@@ -45,7 +45,7 @@ export class UnconnectedProductContainer extends Component{
                 <h1 className="title">Products</h1>
                 <input value={this.state.searchInputText} type={"text"} onChange={(e) => this.updateSearchInputText(e.target.value)}/>
                 <button data-test='search-button' onClick={() => this.onSearchClick()}>Search</button>
-                {this.props.products.data ?
+                {this.props.products && this.props.products.data ?
                 this.props.products.data.map(product =>
                     <Product key={product.id}
                              data-test={`product-${product.id}`}

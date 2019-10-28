@@ -22,7 +22,7 @@ export default (productsState = initialState.products, action) => {
 
 const productSelector = (state) => state.products.data;
 
-const productByCategorySelector = createSelector(
+export const productByCategorySelector = createSelector(
     productSelector,
     selectedCategorySelector,
     (products, selectedCategory) => {
@@ -59,4 +59,4 @@ export const productsByCategoryAndSearchTerm = createSelector(
         }
         return productsByCategory;
     }
-)
+);
