@@ -1,14 +1,11 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {categoryActions} from './actions/categoryActions';
-import {categorySelector} from './redux/menu'
-import {selectedCategorySelector} from "./redux/selectedCategoryReducer";
 import {productActions} from "./actions/productActions";
 import {productByCategorySelector, productsByCategoryAndSearchTerm, productSelector} from "./redux/productReducer";
 import {Product} from "./Product";
 
-class ProductContainer extends Component{
+export class UnconnectedProductContainer extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -47,10 +44,12 @@ class ProductContainer extends Component{
             <div>
                 <h1 className="title">Products</h1>
                 <input value={this.state.searchInputText} type={"text"} onChange={(e) => this.updateSearchInputText(e.target.value)}/>
-                <button onClick={() => this.onSearchClick()}>Search</button>
+                <button data-test='search-button' onClick={() => this.onSearchClick()}>Search</button>
                 {this.props.products.data ?
                 this.props.products.data.map(product =>
-                    <Product product={product}
+                    <Product key={product.id}
+                             data-test={`product-${product.id}`}
+                             product={product}
                              onClick={() => this.toggleExpanded(product.id)}
                              expanded={this.state.expandedProducts.includes(product.id)}
                     />
@@ -70,4 +69,4 @@ const mapDispatchToProps = dispatch => ({
     setProductSearchTerm: (text) => dispatch(productActions.setProductSearchTerm(text))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(UnconnectedProductContainer)
