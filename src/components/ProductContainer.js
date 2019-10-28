@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {productActions} from "./actions/productActions";
-import {productByCategorySelector, productsByCategoryAndSearchTerm, productSelector} from "./redux/productReducer";
+import {productActions} from "../actions/productActions";
+import { productsByCategoryAndSearchTerm} from "../reducers/productReducer";
 import {Product} from "./Product";
 
 export class UnconnectedProductContainer extends Component{

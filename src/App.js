@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import Menu from './Menu.js'
+import Menu from './components/Menu.js'
 import './App.css'
-import ProductContainer from "./ProductContainer";
+import ProductContainer from "./components/ProductContainer";
 
 const App = () => (
   <div className="appContainer">

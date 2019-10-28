@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {categoryActions} from './actions/categoryActions';
-import {categorySelector} from './redux/categoryReducer'
-import {selectedCategorySelector} from "./redux/selectedCategoryReducer";
+import {categoryActions} from '../actions/categoryActions';
+import {categorySelector} from '../reducers/categoryReducer'
+import {selectedCategorySelector} from "../reducers/selectedCategoryReducer";
 
 export class UnconnectedMenu extends Component{
 

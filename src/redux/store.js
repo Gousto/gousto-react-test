@@ -3,7 +3,7 @@ import { connectRouter, routerMiddleware } from 'connected-react-router'
 import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 import {apiMiddleware} from './api-middleware'
-import rootReducer from '.'
+import rootReducer from '../reducers/rootReducer'
 
 export const history = createHistory();
 

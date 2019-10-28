@@ -1,4 +1,4 @@
-import initialState from './initial-state';
+import initialState from '../redux/initial-state';
 import { createSelector } from 'reselect'
 import {productActions} from "../actions/productActions";
 import {selectedCategorySelector} from "./selectedCategoryReducer";
