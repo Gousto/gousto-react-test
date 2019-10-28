@@ -12,4 +12,5 @@ export default {
         data: []
     },
     selectedCategory: null,
+    searchTerm: ''
 }

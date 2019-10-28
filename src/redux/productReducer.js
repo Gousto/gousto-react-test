@@ -1,5 +1,7 @@
 import initialState from './initial-state';
+import { createSelector } from 'reselect'
 import {productActions} from "../actions/productActions";
+import {selectedCategorySelector} from "./selectedCategoryReducer";
 
 export default (productsState = initialState.products, action) => {
         switch (action.type) {
@@ -18,14 +20,43 @@ export default (productsState = initialState.products, action) => {
         }
 }
 
+const productSelector = (state) => state.products.data;
 
-
-export const productSelector = (state) => {
-    if(state.selectedCategory) {
+const productByCategorySelector = createSelector(
+    productSelector,
+    selectedCategorySelector,
+    (products, selectedCategory) => {
+    if(selectedCategory) {
         return {
-            ...state.products.data,
-            data: state.products.data.data.filter(product => product.categories.some(category => category.id === state.selectedCategory))
+            ...products,
+            data: products.data.filter(product => product.categories.some(category => category.id === selectedCategory))
         }
     }
-    return state.products.data;
+    return products;
+    }
+);
+
+export const searchTermReducer = (searchTermState = initialState.searchTerm, action) =>{
+    switch(action.type){
+        case productActions.types.SET_PRODUCT_SEARCH_TERM:
+            return action.payload;
+        default:
+            return searchTermState;
+    }
 };
+
+const searchTermSelector = (state) => state.searchTerm;
+
+export const productsByCategoryAndSearchTerm = createSelector(
+    productByCategorySelector,
+    searchTermSelector,
+    (productsByCategory, searchTerm) => {
+        if(searchTerm){
+            return {
+                ...productsByCategory,
+                data: productsByCategory.data.filter(product => product.title.includes(searchTerm))
+            }
+        }
+        return productsByCategory;
+    }
+)
